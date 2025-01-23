@@ -1,0 +1,3 @@
+---
+- host: FRPARADM133
+  status: CRITICAL
