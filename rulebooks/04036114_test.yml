@@ -1,0 +1,15 @@
+---
+- name: Test Rulebook for Local Execution
+  hosts: localhost
+  sources:
+    - name: test
+      ansible.eda.file:
+        files:
+          - fact.yml
+  rules:
+    - name: Handle Critical Hosts
+      condition: >
+        event is mapping and event.status == "CRITICAL"
+      actions:
+        - debug:
+            msg: "Critical issue detected on host {{ event.host }}"
