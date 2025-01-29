@@ -10,7 +10,7 @@
 
   rules:
     - name: Handle Critical Hosts
-      condition: event.message == '"status":"CRITICAL"'
+      condition: event.url_check.status == "up"
       actions:
         - debug:
             msg: "Critical issue detected on host"
