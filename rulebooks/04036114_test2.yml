@@ -1,5 +1,5 @@
 - name: Example
-  hosts: localhost
+  hosts: all
   gather_facts: true
   sources:
     - name: range
