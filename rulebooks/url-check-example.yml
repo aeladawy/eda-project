@@ -5,7 +5,7 @@
   sources:
      - ansible.eda.url_check:
         urls:
-          - http://webserver
+          - https://aeladawy-aap25-ctrl.example.com
         delay: 10
 
   rules:
@@ -15,11 +15,11 @@
     ## Define the action we should take should the condition be met  
       action:
         run_playbook:
-          name: wowza.yml
+          name: collect facts
 
     - name: Web site is down
       condition: event.url_check.status == "down"
     ## Define the action we should take should the condition be met  
       action:
         run_playbook:
-          name: fix_web.yml
+          name: 
