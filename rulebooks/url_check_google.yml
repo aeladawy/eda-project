@@ -6,6 +6,7 @@
         urls:
           - http://10.1.230.110
         delay: 10
+        verify_ssl: false
   rules:
     - name: Handle Critical Hosts
       condition: event.url_check.status == "down"
