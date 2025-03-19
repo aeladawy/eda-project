@@ -8,7 +8,7 @@
         delay: 10
   rules:
     - name: Handle Critical Hosts
-      condition: event.url_check.status == "up"
+      condition: event.url_check.status == "down"
       actions:
         - debug:
             msg: "Critical issue detected on host"
