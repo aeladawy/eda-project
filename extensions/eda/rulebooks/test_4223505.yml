@@ -1,9 +1,16 @@
----
-- name: case check
-  hosts: all
+- name: Generic Source Payload File
+  hosts: localhost
   sources:
     - ansible.eda.generic:
-        payload_file: "./04223505_var.yml"
-        display: false
-        loop_count: 2000
-        loop_delay: 3
+        payload_file:
+           "events.yml"
+        display: true
+        loop_count: 3 
+        loop_delay: 30 
+        create_index: i
+  rules:
+    - name: Check if the service is unhealthy
+      condition: event.status == "unhealthy"
+      action:
+        run_playbook:
+          name: generic-handle.yml
