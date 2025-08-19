@@ -1,16 +1,10 @@
 ---
-- name: Listen for events on a webhook
-  hosts: all
-  ## Define our source for events
+- name: Testing
+  hosts: localhost
   sources:
-     - ansible.eda.url_check:
-        urls:
-          - https://aeladawy-aap24-eda.example.com
-        delay: 10
-
-  rules:
-    - name: Handle Critical Hosts
-      condition: event.url_check.status == "up"
-      actions:
-        - debug:
-            msg: "Critical issue detected on host"
+    - name: Load default vars
+      ansible.eda.generic:
+        payload_file: "./04223505_var.yml"
+        display: false
+        loop_count: 2000
+        loop_delay: 3
