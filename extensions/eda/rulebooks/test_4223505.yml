@@ -6,9 +6,9 @@
         display: true
         loop_count: 3
         loop_delay: 5
-#  rules:
-#    - name: Check if the service is unhealthy
-#      condition: event.status == "unhealthy"
-#      action:
-#        run_playbook:
-#          name: generic-handle.yml
+  rules:
+    - name: Check if the service is unhealthy
+      condition: event.status == "unhealthy"
+      actions:
+        - debug:
+            msg: "unhealthy"
