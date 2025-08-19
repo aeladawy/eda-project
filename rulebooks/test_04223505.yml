@@ -1,11 +1,9 @@
 ---
 - name: Testing
-  hosts: localhost
-  gather_facts: false
+  hosts: all
 
   sources:
-    - name: Load default vars
-      ansible.eda.generic:
+    - ansible.eda.generic:
         payload_file: "./04223505_var.yml"
         display: false
         loop_count: 2000
